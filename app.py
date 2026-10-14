@@ -76,7 +76,7 @@ def valider_releve(data):
 
     for champ in ("ville", "produit", "unite"):
         valeur = valeurs[champ]
-        if not 1 <= len(valeur) <= 80 or not re.fullmatch(r"[\wÀ-ÿ .'-]+", valeur, re.UNICODE):
+        if not 1 <= len(valeur) <= 80 or not re.fullmatch(r"[\wÀ-ÿ .'’-]+", valeur, re.UNICODE):
             raise ValueError(f"Le champ {champ} est invalide.")
 
     if not valeurs["prix_fcfa"].isdigit() or not 1 <= int(valeurs["prix_fcfa"]) <= 10_000_000:
