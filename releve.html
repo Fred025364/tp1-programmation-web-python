@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d47">
+  <title>Relevé des prix · TP 1</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Retour à l'accueil">ISSEA <span>· TP 1</span></a>
+      <a class="header-link" href="/api/prix">Voir l’API des prix <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Programmation Web en Python</p>
+        <h1>Relevé des prix</h1>
+        <p class="lead">Collectez le prix d’un produit dans votre ville. Les relevés envoyés depuis le serveur sont ajoutés au fichier <code>prix.csv</code>.</p>
+      </div>
+      <div class="intro-icon" aria-hidden="true">₣</div>
+    </section>
+
+    <div class="content-grid">
+      <section class="card" aria-labelledby="form-title">
+        <div class="card-heading">
+          <span class="step">01</span>
+          <div>
+            <h2 id="form-title">Nouveau relevé</h2>
+            <p>Renseignez tous les champs ci-dessous.</p>
+          </div>
+        </div>
+
+        <form id="releve-form">
+          <div class="field-row">
+            <label for="date">Date du relevé
+              <input id="date" name="date" type="date" required>
+            </label>
+            <label for="ville">Ville
+              <input id="ville" name="ville" type="text" maxlength="80" placeholder="Ex. Douala" autocomplete="address-level2" required>
+            </label>
+          </div>
+          <label for="produit">Produit
+            <input id="produit" name="produit" type="text" maxlength="80" placeholder="Ex. Riz" required>
+          </label>
+          <div class="field-row">
+            <label for="unite">Unité
+              <select id="unite" name="unite" required>
+                <option value="">Choisir une unité</option>
+                <option value="kg">Kilogramme (kg)</option>
+                <option value="litre">Litre</option>
+                <option value="unité">Unité</option>
+                <option value="sac">Sac</option>
+              </select>
+            </label>
+            <label for="prix_fcfa">Prix en FCFA
+              <input id="prix_fcfa" name="prix_fcfa" type="number" min="1" max="10000000" step="1" inputmode="numeric" placeholder="Ex. 750" required>
+            </label>
+          </div>
+          <button type="submit">Enregistrer le relevé <span aria-hidden="true">→</span></button>
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <aside class="side-stack">
+        <section class="card population-card" aria-labelledby="population-title">
+          <span class="step step-light">02</span>
+          <p class="eyebrow">API Banque mondiale</p>
+          <h2 id="population-title">Population du Cameroun</h2>
+          <p id="population-value" class="population-value" aria-live="polite">Chargement…</p>
+          <p id="population-year" class="population-year">Dernière année disponible</p>
+          <a href="/api/population/CMR">Voir la réponse JSON <span aria-hidden="true">↗</span></a>
+        </section>
+        <section class="card links-card" aria-labelledby="links-title">
+          <h2 id="links-title">Explorer le projet</h2>
+          <a href="/api/prix"><span>Liste des prix</span><span aria-hidden="true">↗</span></a>
+          <a href="/bonjour/Douala"><span>Bonjour Douala</span><span aria-hidden="true">↗</span></a>
+          <p>Les quatre relevés fournis dans le CSV sont des exemples fictifs.</p>
+        </section>
+      </aside>
+    </div>
+  </main>
+  <footer class="container">TP 1 · De la page statique à la première API</footer>
+</body>
+</html>
+
