@@ -1,6 +1,8 @@
 # TP 1 — De la page statique à la première API
 
-Projet correspondant aux étapes 1 à 5 du TP. Le pays choisi pour le bonus est le **Cameroun** (`CMR`). Les quatre prix initiaux de `prix.csv` sont des **données fictives de démonstration**, à remplacer par de vrais relevés.
+Projet correspondant aux étapes 1 à 5 du TP. Le pays choisi pour le bonus est le **Tchad** (`TCD`). Les quatre prix initiaux de `prix.csv` sont des **données fictives de démonstration**, à remplacer par de vrais relevés.
+
+Dépôt GitHub public : https://github.com/Fred025364/tp1-programmation-web-python
 
 ## 1. Installer et préparer
 
@@ -11,7 +13,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-Le dépôt Git local se crée avec `git init`, puis `git add .` et `git commit -m "TP 1 : formulaire et API Django"`. Pour le publier, créez un dépôt vide sur votre compte GitHub, puis ajoutez son URL avec `git remote add origin URL_DU_DEPOT` et poussez avec `git push -u origin main` (après avoir nommé la branche `main` si nécessaire). Ne publiez pas `.venv` ; il est exclu par `.gitignore`.
+Le dépôt Git local a été initialisé avec `git init`, `git add .` et `git commit`. Le dépôt GitHub a été publié depuis le navigateur parce que le terminal de ce poste ne joignait pas GitHub. Pour poursuivre le travail avec un historique Git synchronisé, clonez le dépôt public dans un nouveau dossier. Ne publiez pas `.venv` ; il est exclu par `.gitignore`.
 
 ## 2–3. HTML et CSS
 
@@ -26,11 +28,11 @@ Ouvrez `releve.html` directement dans un navigateur pour voir le formulaire et s
 Ouvrez ensuite :
 
 - `http://127.0.0.1:8000/` : formulaire ; avec le serveur, les envois sont ajoutés à `prix.csv`.
-- `http://127.0.0.1:8000/bonjour/Douala` : salutation de la ville.
+- `http://127.0.0.1:8000/bonjour/Moundou` : salutation de la ville.
 - `http://127.0.0.1:8000/api/prix` : JSON des relevés du CSV.
 - `http://127.0.0.1:8000/api/prix?affichage=texte` : même JSON affiché en texte, utile pour une capture si le navigateur télécharge les réponses `application/json`.
 - `http://127.0.0.1:8000/apercu/prix` : page de présentation de la réponse de `/api/prix` pour les navigateurs qui bloquent l’ouverture directe du JSON.
-- `http://127.0.0.1:8000/api/population/CMR` : dernière population non vide du Cameroun via la Banque mondiale, avec son année et l’URL source.
+- `http://127.0.0.1:8000/api/population/TCD` : dernière population non vide du Tchad via la Banque mondiale, avec son année et l’URL source.
 
 L’API Banque mondiale doit être accessible depuis le réseau pour afficher la population. La route répond avec une erreur explicite si elle est indisponible. Documentation officielle : https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures
 

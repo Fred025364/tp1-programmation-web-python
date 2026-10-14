@@ -45,7 +45,7 @@ form.addEventListener("submit", async event => {
 });
 
 if (location.protocol !== "file:") {
-  fetch("/api/population/CMR")
+  fetch("/api/population/TCD")
     .then(response => response.json().then(data => ({ ok: response.ok, data })))
     .then(({ ok, data }) => {
       if (!ok) throw new Error(data.erreur);
@@ -60,4 +60,3 @@ if (location.protocol !== "file:") {
   document.querySelector("#population-value").textContent = "Serveur requis";
   document.querySelector("#population-year").textContent = "Lancez Django pour charger cette donnée.";
 }
-

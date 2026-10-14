@@ -127,7 +127,7 @@ def apercu_prix(request):
     return HttpResponse(page, content_type="text/html; charset=utf-8")
 
 
-def api_population(request, pays="CMR"):
+def api_population(request, pays="TCD"):
     if request.method != "GET":
         return JsonResponse({"erreur": "Méthode non autorisée."}, status=405)
     if not re.fullmatch(r"[A-Za-z]{3}", pays):
